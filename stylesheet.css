@@ -1123,7 +1123,8 @@ img {
 
 .about-person-section {
   position: relative;
-  padding: 120px 80px;
+  padding-top: 120px;
+  padding-bottom: 120px;
   background-color: var(--bg-primary);
 }
 
@@ -2892,7 +2893,7 @@ img {
     transition: color 0.15s;
   }
 
-  .work-acc-open > .work-acc-hdr {
+  .work-acc-open>.work-acc-hdr {
     color: var(--brand-primary);
   }
 
@@ -2907,7 +2908,7 @@ img {
     transition: transform 0.2s;
   }
 
-  .work-acc-open > .work-acc-hdr .work-acc-arrow {
+  .work-acc-open>.work-acc-hdr .work-acc-arrow {
     transform: rotate(45deg);
   }
 
@@ -2980,19 +2981,52 @@ img {
     gap: 12px;
   }
 
-  .h-smp    { height: 180px; }
-  .h-540    { height: 300px; }
-  .h-289    { height: 180px; width: 100%; flex: none; }
-  .h-398    { height: 200px; }
-  .h-415    { height: 200px; }
-  .h-668    { height: auto; aspect-ratio: 988 / 668; }
-  .h-BG1   { width: 100%; height: auto; aspect-ratio: 988 / 668; }
-  .h-201    { height: 130px; }
-  .h-224    { height: 130px; }
+  .h-smp {
+    height: 180px;
+  }
+
+  .h-540 {
+    height: 300px;
+  }
+
+  .h-289 {
+    height: 180px;
+    width: 100%;
+    flex: none;
+  }
+
+  .h-398 {
+    height: 200px;
+  }
+
+  .h-415 {
+    height: 200px;
+  }
+
+  .h-668 {
+    height: auto;
+    aspect-ratio: 988 / 668;
+  }
+
+  .h-BG1 {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 988 / 668;
+  }
+
+  .h-201 {
+    height: 130px;
+  }
+
+  .h-224 {
+    height: 130px;
+  }
 
   .prod-r1-c1,
   .prod-r1-c2,
-  .prod-r1-c3 { height: 160px; }
+  .prod-r1-c3 {
+    height: 160px;
+  }
 
   /* ---- Services ---- */
   .services {
@@ -3113,7 +3147,7 @@ img {
   }
 
   /* ---- Work detail page horizontal padding ---- */
-  .lhc-page > section {
+  .lhc-page>section {
     padding-left: 20px;
     padding-right: 20px;
   }
@@ -3125,7 +3159,9 @@ img {
     flex-wrap: nowrap;
   }
 
-  .lwork-tabs::-webkit-scrollbar { display: none; }
+  .lwork-tabs::-webkit-scrollbar {
+    display: none;
+  }
 
   /* Pull tabs back to full width on mobile */
   .lapetos-section .lwork-tabs {
