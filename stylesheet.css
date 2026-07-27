@@ -1475,6 +1475,20 @@ img {
    PERFORMANCE MARKETING SPECIALIST — About page sections
    ========================================================================== */
 
+.pm-brands-section {
+  padding-top: 80px;
+  padding-bottom: 80px;
+  background-color: var(--bg-primary);
+}
+
+.pm-brands-section .about-brands-inner {
+  gap: 32px;
+}
+
+.pm-brands-section .about-brand-cell img {
+  filter: brightness(0.85);
+}
+
 
 
 .pm-disciplines-list {
