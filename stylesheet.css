@@ -2982,7 +2982,7 @@ img {
   display: flex;
   flex-direction: column;
   gap: 22px;
-  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.25);
+  box-shadow: none;
   text-decoration: none;
   color: inherit;
   cursor: pointer;
@@ -2991,8 +2991,8 @@ img {
 }
 
 .contact-quick-card:hover {
-  /* Lift with a deeper shadow plus a soft brand-red glow */
-  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.6), 0 8px 28px rgba(212, 44, 61, 0.22);
+  /* Shadow only on hover (none at rest), neutral dark — no red glow */
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.6);
   transform: translateY(-4px);
 }
 
