@@ -2200,7 +2200,10 @@ img {
   display: flex;
   align-items: center;
   gap: 8px;
-  padding: 16px 24px;
+  /* Bleed the rules out to the card edges (card padding is 80px); the extra
+     padding keeps the text where it was, aligned with the title */
+  margin: 0 -80px;
+  padding: 16px 104px;
   border-top: 1px solid #292929;
   border-bottom: 1px solid #292929;
   font-family: var(--font-body);
@@ -3566,7 +3569,8 @@ img {
 
   .work-hero-label {
     font-size: 10px;
-    padding: 10px 4px;
+    margin: 0 -20px;
+    padding: 10px 24px;
     letter-spacing: 0.7px;
   }
 
