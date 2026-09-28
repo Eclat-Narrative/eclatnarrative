@@ -337,7 +337,7 @@ img {
 .brands-track {
   display: flex;
   width: max-content;
-  animation: brands-scroll 45s linear infinite;
+  animation: brands-scroll 53s linear infinite;
 }
 
 .brands-marquee:hover .brands-track {
