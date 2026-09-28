@@ -420,6 +420,13 @@ img {
   display: grid;
 }
 
+/* Accordion header is mobile-only markup (injected by JS); hidden by
+   default so it can't show up unstyled if the mobile init ever runs
+   on a viewport that's since been resized wider without a reload. */
+.work-acc-hdr {
+  display: none;
+}
+
 /* Sidebar Menu */
 .work-sidebar {
   display: flex;
@@ -450,6 +457,108 @@ img {
 .work-menu-item img {
   width: 12px;
   height: 12px;
+}
+
+.work-explore-link {
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.work-explore-link img {
+  width: 20px;
+  height: 20px;
+}
+
+.contact-btn img,
+.work-explore-link img {
+  transform: rotate(45deg);
+  transition: transform 0.25s ease;
+}
+
+.contact-btn:hover img,
+.work-explore-link:hover img {
+  transform: rotate(180deg);
+}
+
+/* Food & Beverage: Pista House / Lumie are dropdown groups in the sidebar */
+.fb-sidebar {
+  gap: 24px;
+}
+
+.fb-group {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.fb-group-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 16px 8px;
+  white-space: nowrap;
+  background: none;
+  border: 0;
+  border-bottom: 2px solid var(--text-white);
+  font-family: var(--font-title);
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1;
+  color: var(--text-white);
+  text-align: left;
+  cursor: pointer;
+  transition: border-color 0.2s ease;
+}
+
+.fb-group-toggle.active {
+  border-bottom-color: var(--brand-primary);
+}
+
+.fb-group-caret {
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  transform: rotate(-90deg);
+  transition: transform 0.2s ease;
+}
+
+.fb-group-toggle.active .fb-group-caret {
+  transform: rotate(0deg);
+}
+
+.fb-group-items {
+  display: none;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 24px;
+}
+
+.fb-group-items.active {
+  display: flex;
+}
+
+.fb-group-items .work-menu-item {
+  justify-content: flex-start;
+  gap: 8px;
+  border-bottom: 1px solid transparent;
+}
+
+.fb-group-items .work-menu-item:hover {
+  color: var(--text-white);
+}
+
+.fb-group-items .work-menu-item.active {
+  color: var(--text-white);
+  border-bottom-color: var(--text-white);
+}
+
+.fb-group-items .work-explore-link svg {
+  transition: transform 0.2s ease;
+}
+
+.fb-group-items .work-explore-link:hover svg {
+  transform: translateX(3px);
 }
 
 /* Gallery Grid */
@@ -1023,8 +1132,8 @@ img {
   padding: 12px 32px;
   cursor: pointer;
   transition: background-color 0.2s ease;
-  width: 140px;
-
+  width: auto;
+  white-space: nowrap;
 }
 
 .form-submit-btn:hover {
@@ -1861,6 +1970,21 @@ img {
   object-position: center;
 }
 
+/* Clickable hero card (Food & Beverage listing page) */
+.work-hero-link {
+  color: inherit;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.work-hero-link .work-hero-bg {
+  transition: transform 0.6s ease;
+}
+
+.work-hero-link:hover .work-hero-bg {
+  transform: scale(1.03);
+}
+
 .work-hero-overlay {
   position: absolute;
   inset: 0;
@@ -1949,7 +2073,7 @@ img {
 .work-tabs {
   border: 1px solid var(--border-color);
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   background: var(--bg-primary);
 }
 
@@ -2217,7 +2341,7 @@ img {
 }
 
 /* ==========================================================================
-   HEALTHCARE PAGE (healthcare.html)
+   HEALTHCARE PAGE (lapetos-healthcare.html)
    ========================================================================== */
 
 .play-overlay {
@@ -2636,18 +2760,27 @@ img {
 
 .contact-quick-cards {
   display: flex;
-  gap: 25px;
+  gap: 32px;
   flex-shrink: 0;
 }
 
 .contact-quick-card {
   background: var(--bg-tertiary);
-  padding: 24px;
+  padding: 28px;
   width: 332px;
   display: flex;
   flex-direction: column;
   gap: 22px;
   box-shadow: 0 4px 18px rgba(0, 0, 0, 0.25);
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: border-color 0.2s ease;
+}
+
+.contact-quick-card:hover {
+  border-color: var(--brand-primary);
 }
 
 .contact-quick-card-top {
@@ -2680,6 +2813,12 @@ img {
 .contact-quick-arrow img {
   width: 20px;
   height: 20px;
+  transform: rotate(45deg);
+  transition: transform 0.25s ease;
+}
+
+.contact-quick-card:hover .contact-quick-arrow img {
+  transform: rotate(180deg);
 }
 
 .contact-quick-info {
@@ -2985,6 +3124,33 @@ img {
 
   .work-acc-open .work-sidebar::-webkit-scrollbar {
     display: none;
+  }
+
+  /* Food & Beverage's Pista House/Lumie dropdown doesn't fit the
+     horizontal chip-scroller — stack it as a normal vertical list. */
+  .work-content[data-tab-panel="food-beverage"].work-acc-open .work-sidebar {
+    flex-direction: column;
+    overflow-x: visible;
+    width: 100%;
+    margin: 0;
+  }
+
+  .work-content[data-tab-panel="food-beverage"].work-acc-open .work-sidebar {
+    gap: 16px;
+    padding: 8px 0 0;
+    background: none;
+    border: 0;
+  }
+
+  .work-content[data-tab-panel="food-beverage"] .fb-group-items .work-menu-item {
+    white-space: normal;
+    padding: 8px 0;
+    border-right: none;
+    background: none;
+  }
+
+  .work-content[data-tab-panel="food-beverage"] .fb-group-items .work-menu-item.active {
+    border-bottom: 1px solid var(--text-white);
   }
 
   .work-acc-open .work-sub-panels {

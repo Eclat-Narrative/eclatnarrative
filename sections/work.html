@@ -3,26 +3,24 @@
 
     <!-- TOP TABS -->
     <div class="work-tabs">
-      <div class="work-tab active" data-tab="medical">Healthcare</div>
-      <div class="work-tab" data-tab="restaurant">Restaurant</div>
+      <div class="work-tab active" data-tab="food-beverage">Food &amp; Beverage</div>
+      <div class="work-tab" data-tab="medical">Healthcare</div>
       <div class="work-tab" data-tab="beauty">Beauty</div>
       <div class="work-tab" data-tab="education">Education</div>
-      <div class="work-tab" data-tab="cafe">Café</div>
     </div>
 
     <!-- ── MEDICAL (Lapetos) ───────────────────────────── -->
-    <div class="work-content active" data-tab-panel="medical">
+    <div class="work-content" data-tab-panel="medical">
       <div class="work-sidebar">
         <div class="work-menu-item active" data-sub-tab="brand-identity"><span>Brand Identity</span></div>
         <div class="work-menu-item" data-sub-tab="brand-guidelines"><span>Brand Guidelines</span></div>
         <div class="work-menu-item" data-sub-tab="social-media"><span>Social Media Posts</span></div>
         <div class="work-menu-item" data-sub-tab="reels"><span>Reels</span></div>
         <div class="work-menu-item" data-sub-tab="production"><span>Production</span></div>
-        <div class="work-menu-item">
+        <a class="work-menu-item work-explore-link" href="lapetos-healthcare.html">
           <span>Explore More</span>
-
-          <img src="assets/01 - Home Page/01 - Navbar/IconArrowRight.png" alt="">
-        </div>
+          <img src="assets/01 - Home Page/01 - Navbar/IconArrowRightUpCircle.png" alt="">
+        </a>
       </div>
       <div class="work-sub-panels">
 
@@ -212,22 +210,63 @@
       </div>
     </div>
 
-    <!-- ── RESTAURANT (Pista House) ───────────────────── -->
-    <div class="work-content" data-tab-panel="restaurant">
-      <div class="work-sidebar">
-        <div class="work-menu-item active" data-sub-tab="social-media-posts"><span>Social Media Posts</span></div>
-        <div class="work-menu-item" data-sub-tab="reels"><span>Reels</span></div>
-        <div class="work-menu-item" data-sub-tab="influencer-marketing"><span>Influencer Marketing</span></div>
-        <div class="work-menu-item" data-sub-tab="haleem-campaign"><span>Haleem Campaign</span></div>
-        <div class="work-menu-item">
-          <span>Explore More</span>
-          <img src="assets/01 - Home Page/01 - Navbar/IconArrowRightUpCircle.png" alt="">
+    <!-- ── FOOD & BEVERAGE (Pista House + Lumie, merged) ── -->
+    <div class="work-content active" data-tab-panel="food-beverage">
+      <div class="work-sidebar fb-sidebar">
+
+        <div class="fb-group">
+          <button type="button" class="fb-group-toggle active" data-fb-group="restaurant" aria-expanded="true">
+            <span>Pista House</span>
+            <svg class="fb-group-caret" width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M19.4141 9.5L12 16.9141L4.58594 9.5L6 8.08594L12 14.0859L18 8.08594L19.4141 9.5Z" fill="currentColor" /></svg>
+          </button>
+          <div class="fb-group-items active" data-fb-group-items="restaurant">
+            <div class="work-menu-item active" data-sub-tab="restaurant-social-media-posts"><span>Social Media Posts</span></div>
+            <div class="work-menu-item" data-sub-tab="restaurant-reels"><span>Reels</span></div>
+            <div class="work-menu-item" data-sub-tab="restaurant-influencer-marketing"><span>Influencer Marketing</span></div>
+            <div class="work-menu-item" data-sub-tab="restaurant-haleem-campaign"><span>Haleem Campaign</span></div>
+            <a class="work-menu-item work-explore-link" href="pista-house.html">
+              <span>Explore More</span>
+              <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path fill-rule="evenodd" clip-rule="evenodd" d="M7.25177 1.25184L12 6.00006L7.25177 10.7483L6.34608 9.8426L9.5482 6.64048H0.2071V5.35963H9.5482L6.34608 2.15753L7.25177 1.25184Z" fill="currentColor" /></svg>
+            </a>
+          </div>
         </div>
+
+        <div class="fb-group">
+          <button type="button" class="fb-group-toggle" data-fb-group="cafe" aria-expanded="false">
+            <span>Lumie</span>
+            <svg class="fb-group-caret" width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M19.4141 9.5L12 16.9141L4.58594 9.5L6 8.08594L12 14.0859L18 8.08594L19.4141 9.5Z" fill="currentColor" /></svg>
+          </button>
+          <div class="fb-group-items" data-fb-group-items="cafe">
+            <div class="work-menu-item active" data-sub-tab="cafe-social-media-posts"><span>Social Media Posts</span></div>
+            <div class="work-menu-item" data-sub-tab="cafe-reels"><span>Reels</span></div>
+            <div class="work-menu-item" data-sub-tab="cafe-launch-campaign"><span>Launch Campaign</span></div>
+            <a class="work-menu-item work-explore-link" href="lumie.html">
+              <span>Explore More</span>
+              <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path fill-rule="evenodd" clip-rule="evenodd" d="M7.25177 1.25184L12 6.00006L7.25177 10.7483L6.34608 9.8426L9.5482 6.64048H0.2071V5.35963H9.5482L6.34608 2.15753L7.25177 1.25184Z" fill="currentColor" /></svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="fb-group">
+          <button type="button" class="fb-group-toggle" data-fb-group="rameshwaram" aria-expanded="false">
+            <span>Rameshwaram Dosa</span>
+            <svg class="fb-group-caret" width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M19.4141 9.5L12 16.9141L4.58594 9.5L6 8.08594L12 14.0859L18 8.08594L19.4141 9.5Z" fill="currentColor" /></svg>
+          </button>
+          <div class="fb-group-items" data-fb-group-items="rameshwaram">
+            <div class="work-menu-item active" data-sub-tab="rameshwaram-social-media-posts"><span>Social Media Posts</span></div>
+            <div class="work-menu-item" data-sub-tab="rameshwaram-reels"><span>Reels</span></div>
+            <a class="work-menu-item work-explore-link" href="rameshwaram-dosa.html">
+              <span>Explore More</span>
+              <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path fill-rule="evenodd" clip-rule="evenodd" d="M7.25177 1.25184L12 6.00006L7.25177 10.7483L6.34608 9.8426L9.5482 6.64048H0.2071V5.35963H9.5482L6.34608 2.15753L7.25177 1.25184Z" fill="currentColor" /></svg>
+            </a>
+          </div>
+        </div>
+
       </div>
       <div class="work-sub-panels">
 
-        <!-- Social Media Posts: 9 images, 3×3 grid -->
-        <div class="work-sub-panel active" data-sub-panel="social-media-posts">
+        <!-- Restaurant (Pista House) — Social Media Posts: 9 images, 3×3 grid -->
+        <div class="work-sub-panel active" data-sub-panel="restaurant-social-media-posts">
           <div class="gallery-grid-3x3">
 
             <div class="gallery-item h-smp"><img
@@ -279,8 +318,8 @@
           </div>
         </div>
 
-        <!-- Reels: 3 portrait images, first has play btn -->
-        <div class="work-sub-panel" data-sub-panel="reels">
+        <!-- Restaurant — Reels: 3 portrait images, first has play btn -->
+        <div class="work-sub-panel" data-sub-panel="restaurant-reels">
           <div class="gallery-row-3">
             <div class="gallery-item h-540">
               <img src="assets/01 - Home Page/04 - Work/02 - Pista House/02 - Reels/01.png" alt="Reel 1">
@@ -302,9 +341,8 @@
           </div>
         </div>
 
-
-        <!-- Influencer Marketing: 3 portrait images, first has play btn -->
-        <div class="work-sub-panel" data-sub-panel="influencer-marketing">
+        <!-- Restaurant — Influencer Marketing: 3 portrait images, first has play btn -->
+        <div class="work-sub-panel" data-sub-panel="restaurant-influencer-marketing">
           <div class="gallery-row-3">
             <div class="gallery-item h-540">
               <img src="assets/01 - Home Page/04 - Work/02 - Pista House/03 - Influencer Marketing/01.png"
@@ -327,8 +365,8 @@
           </div>
         </div>
 
-        <!-- Haleem Campaign: 3 portrait images, first has play btn -->
-        <div class="work-sub-panel" data-sub-panel="haleem-campaign">
+        <!-- Restaurant — Haleem Campaign: 3 portrait images, first has play btn -->
+        <div class="work-sub-panel" data-sub-panel="restaurant-haleem-campaign">
           <div class="gallery-row-3">
             <div class="gallery-item h-540">
               <img src="assets/01 - Home Page/04 - Work/02 - Pista House/04 - Haleem Campaign/01.png" alt="Haleem 1">
@@ -349,6 +387,168 @@
           </div>
         </div>
 
+        <!-- Café — Social Media Posts: 6 posts, 3×2 grid -->
+        <div class="work-sub-panel" data-sub-panel="cafe-social-media-posts">
+          <div class="gallery-grid-3x3">
+            <div class="gallery-item h-smp">
+              <img src="assets/01 - Home Page/04 - Work/05 - Cafe/d73e923a20575ae34c26fb3c3ea44610cbe7e0a5.png"
+                alt="Post 1">
+              <img class="gallery-overlay"
+                src="assets/01 - Home Page/04 - Work/05 - Cafe/19bde2f5e62f3ffa4399a27959300b2cdf0f256e.png" alt="">
+              <a href="https://www.instagram.com/p/DZO97O3k3ht/?img_index=1" class="gallery-link" target="_blank"
+                rel="noopener" aria-label="View on Instagram"></a>
+            </div>
+            <div class="gallery-item h-smp">
+              <img src="assets/01 - Home Page/04 - Work/05 - Cafe/c9ceba53926af5174f2e7bbc0c0043e50a9a3f3c.png"
+                alt="Post 2">
+              <a href="https://www.instagram.com/p/DY930-Mz_-m/" class="gallery-link" target="_blank" rel="noopener"
+                aria-label="View on Instagram"></a>
+            </div>
+            <div class="gallery-item h-smp">
+              <img src="assets/01 - Home Page/04 - Work/05 - Cafe/b2baadff7c694875bba00fc99409bae24c1a21a4.png"
+                alt="Post 3">
+              <a href="https://www.instagram.com/p/DZDT6iiTxA9/" class="gallery-link" target="_blank" rel="noopener"
+                aria-label="View on Instagram"></a>
+            </div>
+            <div class="gallery-item h-smp">
+              <img src="assets/01 - Home Page/04 - Work/05 - Cafe/b0e2ef7614114aa352d145307e5b87f365a34641.png"
+                alt="Post 4">
+              <a href="https://www.instagram.com/p/DZM_zq-T1xm/" class="gallery-link" target="_blank" rel="noopener"
+                aria-label="View on Instagram"></a>
+            </div>
+            <div class="gallery-item h-smp">
+              <img src="assets/01 - Home Page/04 - Work/05 - Cafe/215395f6083749bda31aeb0f61c2bbc6218eb09b.png"
+                alt="Post 5">
+              <a href="https://www.instagram.com/p/DZXE0-ET_Bk/" class="gallery-link" target="_blank" rel="noopener"
+                aria-label="View on Instagram"></a>
+            </div>
+            <div class="gallery-item h-smp">
+              <img src="assets/01 - Home Page/04 - Work/05 - Cafe/acd53d80e427b501a37d45d57055c28a415c2b40.png"
+                alt="Post 6">
+              <a href="https://www.instagram.com/p/DZeivd_DKTk/?img_index=1" class="gallery-link" target="_blank"
+                rel="noopener" aria-label="View on Instagram"></a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Café — Reels: 3 portrait reels with play button -->
+        <div class="work-sub-panel" data-sub-panel="cafe-reels">
+          <div class="gallery-row-3">
+            <div class="gallery-item h-540">
+              <img src="assets/01 - Home Page/04 - Work/05 - Cafe/de3a2b0c58195314950d3659bea457643af0e26f.png"
+                alt="Reel 1">
+              <img class="gallery-overlay"
+                src="assets/01 - Home Page/04 - Work/05 - Cafe/4fa78caf304a900da55d9b7c7cf894c632021e14.png" alt="">
+              <img class="gallery-overlay"
+                src="assets/01 - Home Page/04 - Work/05 - Cafe/44a6c28cacebb70dc40ab29f9b6485c13053433f.png" alt="">
+              <div class="play-overlay">
+              </div>
+              <a href="https://www.instagram.com/reel/DYM2bAQzV1v/" class="gallery-link" target="_blank" rel="noopener"
+                aria-label="Watch reel"></a>
+            </div>
+            <div class="gallery-item h-540">
+              <img src="assets/01 - Home Page/04 - Work/05 - Cafe/542960b25b3e2c63aa28bb517d133a2d567b9276.png"
+                alt="Reel 2">
+              <a href="https://www.instagram.com/reel/DYAFDfJTLcj/" class="gallery-link" target="_blank" rel="noopener"
+                aria-label="Watch reel"></a>
+            </div>
+            <div class="gallery-item h-540">
+              <img src="assets/01 - Home Page/04 - Work/05 - Cafe/99e035f5dded03bdd60ac347af597467347d8060.png"
+                alt="Reel 3">
+              <a href="https://www.instagram.com/reel/DYZ6tAoz3eg/" class="gallery-link" target="_blank" rel="noopener"
+                aria-label="Watch reel"></a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Café — Launch Campaign: 3 portrait reels with play button -->
+        <div class="work-sub-panel" data-sub-panel="cafe-launch-campaign">
+          <div class="gallery-row-3">
+            <div class="gallery-item h-540">
+              <img src="assets/01 - Home Page/04 - Work/05 - Cafe/519105a7ecd42a82678efc55f37a425a546d6279.png"
+                alt="Campaign Reel 1">
+              <img class="gallery-overlay"
+                src="assets/01 - Home Page/04 - Work/05 - Cafe/5135cb7fa7b23603b9ec721dfce5fddd755520c0.png" alt="">
+              <div class="play-overlay">
+              </div>
+              <a href="https://www.instagram.com/reel/DZXNdVMTr2w/" class="gallery-link" target="_blank" rel="noopener"
+                aria-label="Watch reel"></a>
+            </div>
+            <div class="gallery-item h-540">
+              <img src="assets/01 - Home Page/04 - Work/05 - Cafe/8cd2cb395c517552c27905b016ae705c1f5a52a6.png"
+                alt="Campaign Reel 2">
+              <a href="https://www.instagram.com/reel/DZapUUKTFyg/" class="gallery-link" target="_blank" rel="noopener"
+                aria-label="Watch reel"></a>
+            </div>
+            <div class="gallery-item h-540">
+              <img src="assets/01 - Home Page/04 - Work/05 - Cafe/c6eb2ecb1aa3b7c07cae3cc97d624a6604013b1b.png"
+                alt="Campaign Reel 3">
+              <a href="https://www.instagram.com/reel/DZReRS4ToVi/" class="gallery-link" target="_blank" rel="noopener"
+                aria-label="Watch reel"></a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Rameshwaram Dosa — Social Media Posts: 6 posts, 3×2 grid -->
+        <div class="work-sub-panel" data-sub-panel="rameshwaram-social-media-posts">
+          <div class="gallery-grid-3x3">
+              <div class="gallery-item h-smp"><img
+                  src="assets/02 - Work Page/07 - Rameshwaram Dosa/01 - Social Media/01.png" alt="Masala Dosa">
+                <a href="https://www.instagram.com/rameshwaram.dosa/p/Da4_BfKSjhO/" class="gallery-link" target="_blank"
+                  rel="noopener" aria-label="View on Instagram"></a>
+              </div>
+              <div class="gallery-item h-smp"><img
+                  src="assets/02 - Work Page/07 - Rameshwaram Dosa/01 - Social Media/02.png"
+                  alt="Start your day the South Indian way">
+                <a href="https://www.instagram.com/rameshwaram.dosa/p/DbAPBiYyZ1T/" class="gallery-link" target="_blank"
+                  rel="noopener" aria-label="View on Instagram"></a>
+              </div>
+              <div class="gallery-item h-smp"><img
+                  src="assets/02 - Work Page/07 - Rameshwaram Dosa/01 - Social Media/03.png" alt="Medu Vada">
+                <a href="https://www.instagram.com/rameshwaram.dosa/p/DbILt5GSNf-/" class="gallery-link" target="_blank"
+                  rel="noopener" aria-label="View on Instagram"></a>
+              </div>
+              <div class="gallery-item h-smp"><img
+                  src="assets/02 - Work Page/07 - Rameshwaram Dosa/01 - Social Media/04.png"
+                  alt="Monday tip: filter coffee">
+                <a href="https://www.instagram.com/rameshwaram.dosa/p/DbSsoQaytVO/" class="gallery-link" target="_blank"
+                  rel="noopener" aria-label="View on Instagram"></a>
+              </div>
+              <div class="gallery-item h-smp"><img
+                  src="assets/02 - Work Page/07 - Rameshwaram Dosa/01 - Social Media/05.png"
+                  alt="Cooked the way it's meant to be, with pure ghee">
+                <a href="https://www.instagram.com/rameshwaram.dosa/p/DbkeN97n5xp/" class="gallery-link" target="_blank"
+                  rel="noopener" aria-label="View on Instagram"></a>
+              </div>
+              <div class="gallery-item h-smp"><img
+                  src="assets/02 - Work Page/07 - Rameshwaram Dosa/01 - Social Media/06.png" alt="Ghee Benne Dosa">
+                <a href="https://www.instagram.com/rameshwaram.dosa/p/DbaEMrMnwf5/" class="gallery-link" target="_blank"
+                  rel="noopener" aria-label="View on Instagram"></a>
+              </div>
+            </div>
+        </div>
+
+        <!-- Rameshwaram Dosa — Reels: 3 portrait reels -->
+        <div class="work-sub-panel" data-sub-panel="rameshwaram-reels">
+          <div class="gallery-row-3">
+              <div class="gallery-item h-540">
+                <img src="assets/02 - Work Page/07 - Rameshwaram Dosa/02 - Reels/01.png" alt="Reel 1">
+                <a href="https://www.instagram.com/reel/DWWX6_mkxX5/" target="_blank" rel="noopener"
+                  class="gallery-link" aria-label="Watch reel"></a>
+              </div>
+              <div class="gallery-item h-540">
+                <img src="assets/02 - Work Page/07 - Rameshwaram Dosa/02 - Reels/02.png" alt="Reel 2">
+                <a href="https://www.instagram.com/reel/DW_gBwrEwR7/" target="_blank" rel="noopener"
+                  class="gallery-link" aria-label="Watch reel"></a>
+              </div>
+              <div class="gallery-item h-540">
+                <img src="assets/02 - Work Page/07 - Rameshwaram Dosa/02 - Reels/03.png" alt="Reel 3">
+                <a href="https://www.instagram.com/p/DWyvyIYivoG/" target="_blank" rel="noopener"
+                  class="gallery-link" aria-label="Watch reel"></a>
+              </div>
+            </div>
+        </div>
+
       </div>
     </div>
 
@@ -359,10 +559,10 @@
         <div class="work-menu-item" data-sub-tab="reels"><span>Reels</span></div>
         <div class="work-menu-item" data-sub-tab="influencer-marketing"><span>Influencer Marketing</span></div>
         <div class="work-menu-item" data-sub-tab="hair-color-day"><span>Hair Color Day</span></div>
-        <div class="work-menu-item">
+        <a class="work-menu-item work-explore-link" href="peluqueria.html">
           <span>Explore More</span>
           <img src="assets/01 - Home Page/01 - Navbar/IconArrowRightUpCircle.png" alt="">
-        </div>
+        </a>
       </div>
       <div class="work-sub-panels">
 
@@ -493,10 +693,10 @@
         <div class="work-menu-item active" data-sub-tab="social-media-posts"><span>Social Media Posts</span></div>
         <div class="work-menu-item" data-sub-tab="reels"><span>Reels</span></div>
         <div class="work-menu-item" data-sub-tab="mun-campaign"><span>MUN Campaign</span></div>
-        <div class="work-menu-item">
+        <a class="work-menu-item work-explore-link" href="allenhouse-lucknow.html">
           <span>Explore More</span>
           <img src="assets/01 - Home Page/01 - Navbar/IconArrowRightUpCircle.png" alt="">
-        </div>
+        </a>
       </div>
       <div class="work-sub-panels">
 
@@ -601,124 +801,6 @@
                 src="assets/01 - Home Page/04 - Work/04 - Allenhouse Public School/03 - MUN Campaign/03.png"
                 alt="MUN 3">
               <a href="https://www.instagram.com/reel/DYgvhQRkYqY/" class="gallery-link" target="_blank" rel="noopener"
-                aria-label="Watch reel"></a>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </div>
-
-    <!-- ── CAFÉ ──────────────────────────────────────── -->
-    <div class="work-content" data-tab-panel="cafe">
-      <div class="work-sidebar">
-        <div class="work-menu-item active" data-sub-tab="social-media-posts"><span>Social Media Posts</span></div>
-        <div class="work-menu-item" data-sub-tab="reels"><span>Reels</span></div>
-        <div class="work-menu-item" data-sub-tab="launch-campaign"><span>Launch Campaign</span></div>
-        <div class="work-menu-item">
-          <span>Explore More</span>
-          <img src="assets/01 - Home Page/01 - Navbar/IconArrowRight.png" alt="">
-        </div>
-      </div>
-      <div class="work-sub-panels">
-
-        <!-- Social Media Posts: 6 posts, 3×2 grid -->
-        <div class="work-sub-panel active" data-sub-panel="social-media-posts">
-          <div class="gallery-grid-3x3">
-            <div class="gallery-item h-smp">
-              <img src="assets/01 - Home Page/04 - Work/05 - Cafe/d73e923a20575ae34c26fb3c3ea44610cbe7e0a5.png"
-                alt="Post 1">
-              <img class="gallery-overlay"
-                src="assets/01 - Home Page/04 - Work/05 - Cafe/19bde2f5e62f3ffa4399a27959300b2cdf0f256e.png" alt="">
-              <a href="https://www.instagram.com/p/DZO97O3k3ht/?img_index=1" class="gallery-link" target="_blank"
-                rel="noopener" aria-label="View on Instagram"></a>
-            </div>
-            <div class="gallery-item h-smp">
-              <img src="assets/01 - Home Page/04 - Work/05 - Cafe/c9ceba53926af5174f2e7bbc0c0043e50a9a3f3c.png"
-                alt="Post 2">
-              <a href="https://www.instagram.com/p/DY930-Mz_-m/" class="gallery-link" target="_blank" rel="noopener"
-                aria-label="View on Instagram"></a>
-            </div>
-            <div class="gallery-item h-smp">
-              <img src="assets/01 - Home Page/04 - Work/05 - Cafe/b2baadff7c694875bba00fc99409bae24c1a21a4.png"
-                alt="Post 3">
-              <a href="https://www.instagram.com/p/DZDT6iiTxA9/" class="gallery-link" target="_blank" rel="noopener"
-                aria-label="View on Instagram"></a>
-            </div>
-            <div class="gallery-item h-smp">
-              <img src="assets/01 - Home Page/04 - Work/05 - Cafe/b0e2ef7614114aa352d145307e5b87f365a34641.png"
-                alt="Post 4">
-              <a href="https://www.instagram.com/p/DZM_zq-T1xm/" class="gallery-link" target="_blank" rel="noopener"
-                aria-label="View on Instagram"></a>
-            </div>
-            <div class="gallery-item h-smp">
-              <img src="assets/01 - Home Page/04 - Work/05 - Cafe/215395f6083749bda31aeb0f61c2bbc6218eb09b.png"
-                alt="Post 5">
-              <a href="https://www.instagram.com/p/DZXE0-ET_Bk/" class="gallery-link" target="_blank" rel="noopener"
-                aria-label="View on Instagram"></a>
-            </div>
-            <div class="gallery-item h-smp">
-              <img src="assets/01 - Home Page/04 - Work/05 - Cafe/acd53d80e427b501a37d45d57055c28a415c2b40.png"
-                alt="Post 6">
-              <a href="https://www.instagram.com/p/DZeivd_DKTk/?img_index=1" class="gallery-link" target="_blank"
-                rel="noopener" aria-label="View on Instagram"></a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Reels: 3 portrait reels with play button -->
-        <div class="work-sub-panel" data-sub-panel="reels">
-          <div class="gallery-row-3">
-            <div class="gallery-item h-540">
-              <img src="assets/01 - Home Page/04 - Work/05 - Cafe/de3a2b0c58195314950d3659bea457643af0e26f.png"
-                alt="Reel 1">
-              <img class="gallery-overlay"
-                src="assets/01 - Home Page/04 - Work/05 - Cafe/4fa78caf304a900da55d9b7c7cf894c632021e14.png" alt="">
-              <img class="gallery-overlay"
-                src="assets/01 - Home Page/04 - Work/05 - Cafe/44a6c28cacebb70dc40ab29f9b6485c13053433f.png" alt="">
-              <div class="play-overlay">
-              </div>
-              <a href="https://www.instagram.com/reel/DYM2bAQzV1v/" class="gallery-link" target="_blank" rel="noopener"
-                aria-label="Watch reel"></a>
-            </div>
-            <div class="gallery-item h-540">
-              <img src="assets/01 - Home Page/04 - Work/05 - Cafe/542960b25b3e2c63aa28bb517d133a2d567b9276.png"
-                alt="Reel 2">
-              <a href="https://www.instagram.com/reel/DYAFDfJTLcj/" class="gallery-link" target="_blank" rel="noopener"
-                aria-label="Watch reel"></a>
-            </div>
-            <div class="gallery-item h-540">
-              <img src="assets/01 - Home Page/04 - Work/05 - Cafe/99e035f5dded03bdd60ac347af597467347d8060.png"
-                alt="Reel 3">
-              <a href="https://www.instagram.com/reel/DYZ6tAoz3eg/" class="gallery-link" target="_blank" rel="noopener"
-                aria-label="Watch reel"></a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Launch Campaign: 3 portrait reels with play button -->
-        <div class="work-sub-panel" data-sub-panel="launch-campaign">
-          <div class="gallery-row-3">
-            <div class="gallery-item h-540">
-              <img src="assets/01 - Home Page/04 - Work/05 - Cafe/519105a7ecd42a82678efc55f37a425a546d6279.png"
-                alt="Campaign Reel 1">
-              <img class="gallery-overlay"
-                src="assets/01 - Home Page/04 - Work/05 - Cafe/5135cb7fa7b23603b9ec721dfce5fddd755520c0.png" alt="">
-              <div class="play-overlay">
-              </div>
-              <a href="https://www.instagram.com/reel/DZXNdVMTr2w/" class="gallery-link" target="_blank" rel="noopener"
-                aria-label="Watch reel"></a>
-            </div>
-            <div class="gallery-item h-540">
-              <img src="assets/01 - Home Page/04 - Work/05 - Cafe/8cd2cb395c517552c27905b016ae705c1f5a52a6.png"
-                alt="Campaign Reel 2">
-              <a href="https://www.instagram.com/reel/DZapUUKTFyg/" class="gallery-link" target="_blank" rel="noopener"
-                aria-label="Watch reel"></a>
-            </div>
-            <div class="gallery-item h-540">
-              <img src="assets/01 - Home Page/04 - Work/05 - Cafe/c6eb2ecb1aa3b7c07cae3cc97d624a6604013b1b.png"
-                alt="Campaign Reel 3">
-              <a href="https://www.instagram.com/reel/DZReRS4ToVi/" class="gallery-link" target="_blank" rel="noopener"
                 aria-label="Watch reel"></a>
             </div>
           </div>

@@ -38,7 +38,7 @@ function initNavScroll() {
 }
 
 function initTaglineAnimation() {
-  var labels = ['🍔 Food', '🏥 Healthcare', '☕ Café', '💄 Beauty', '📚 Education'];
+  var labels = ['Food', 'Healthcare', 'Café', 'Beauty', 'Education'];
   var el = document.querySelector('.hero-tagline .emoji');
   if (!el) return;
   var i = 0;
@@ -55,11 +55,10 @@ function initTaglineAnimation() {
 function initWorkAccordion() {
   if (window.innerWidth > 768) return;
   var labels = {
-    medical:    '🏥 Healthcare',
-    restaurant: '🍽️ Restaurant',
-    beauty:     '💄 Beauty',
-    education:  '📚 Education',
-    cafe:       '☕ Café'
+    medical:        '🏥 Healthcare',
+    'food-beverage': '🍽️ Food & Beverage',
+    beauty:         '💄 Beauty',
+    education:      '📚 Education'
   };
   document.querySelectorAll('.work-content').forEach(function (panel) {
     var key = panel.getAttribute('data-tab-panel');
@@ -114,6 +113,27 @@ function initWorkTabs() {
       panel.querySelectorAll('.work-sub-panel').forEach(x => x.classList.remove('active'));
       st.classList.add('active');
       panel.querySelector(`.work-sub-panel[data-sub-panel="${t}"]`)?.classList.add('active');
+    });
+  });
+
+  // Food & Beverage: Pista House / Lumie are dropdown groups inside the sidebar
+  document.querySelectorAll('.fb-group-toggle').forEach(toggle => {
+    toggle.addEventListener('click', () => {
+      const group = toggle.dataset.fbGroup;
+      const sidebar = toggle.closest('.work-sidebar');
+
+      sidebar.querySelectorAll('.fb-group-toggle').forEach(x => {
+        x.classList.remove('active');
+        x.setAttribute('aria-expanded', 'false');
+      });
+      sidebar.querySelectorAll('.fb-group-items').forEach(x => x.classList.remove('active'));
+      toggle.classList.add('active');
+      toggle.setAttribute('aria-expanded', 'true');
+      const items = sidebar.querySelector(`.fb-group-items[data-fb-group-items="${group}"]`);
+      items?.classList.add('active');
+
+      // Show that group's first page by default
+      items?.querySelector('.work-menu-item[data-sub-tab]')?.click();
     });
   });
 }
