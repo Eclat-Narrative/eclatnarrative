@@ -325,10 +325,50 @@ img {
   color: var(--text-white);
 }
 
-.brands-grid {
+/* Slow, endless logo ribbon. The track holds two identical sets and slides
+   left by exactly one set (-50%), so the loop point is invisible. */
+.brands-marquee {
   border: 1px solid var(--border-color);
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(to right, transparent, #000 6%, #000 94%, transparent);
+  mask-image: linear-gradient(to right, transparent, #000 6%, #000 94%, transparent);
+}
+
+.brands-track {
+  display: flex;
+  width: max-content;
+  animation: brands-scroll 45s linear infinite;
+}
+
+.brands-marquee:hover .brands-track {
+  animation-play-state: paused;
+}
+
+@keyframes brands-scroll {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.brands-track .brand-card {
+  flex: 0 0 256px;
+}
+
+/* Every cell keeps its divider so both sets line up at the seam */
+.brands-track .brand-card:last-child {
+  border-right: 1px solid var(--border-color);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .brands-track {
+    animation: none;
+  }
+
+  .brands-marquee {
+    overflow-x: auto;
+    -webkit-mask-image: none;
+    mask-image: none;
+  }
 }
 
 .brand-card {
@@ -354,6 +394,36 @@ img {
 
 .brand-card:hover img {
   filter: none;
+}
+
+/* Logo built from a symbol + text (Nad Shakti): symbol file has no wordmark */
+.brand-logo-stack {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  color: #c4c4c4;
+  font-family: Georgia, 'Times New Roman', serif;
+  text-transform: uppercase;
+  line-height: 1;
+}
+
+.brand-card .brand-logo-stack img {
+  height: 34px;
+  max-height: none;
+  margin-bottom: 2px;
+}
+
+.brand-logo-name {
+  font-size: 11px;
+  letter-spacing: 2px;
+}
+
+.brand-logo-tag {
+  font-size: 7px;
+  letter-spacing: 0.6px;
+  text-transform: none;
+  color: #a8a8a8;
 }
 
 /* ==========================================================================
@@ -1583,7 +1653,7 @@ img {
 /* Red glow using PNG */
 .about-reach-stat-box::before {
   inset: -40%;
-  background: url('assets/Red Gradient.png') center / cover no-repeat;
+  background: url('assets/Red Gradient.webp') center / cover no-repeat;
   filter: blur(60px);
   opacity: 0.9;
   transform: rotate(-12deg);
@@ -2654,17 +2724,19 @@ img {
   align-items: stretch;
 }
 
+/* ~58% of the row, stretched to the feature list's height; content sits
+   left-aligned with padding rather than centred in a fixed box */
 .lapetos-stats-card {
-  width: 760px;
-  height: 360px;
-  flex-shrink: 0;
+  flex: 0 0 58%;
+  min-height: 360px;
+  padding: 40px 48px;
   background: var(--bg-primary);
   overflow: hidden;
   position: relative;
   display: flex;
   align-items: center;
-  justify-content: center;
-  background: url('assets/Red Gradient.png') center / cover no-repeat;
+  justify-content: flex-start;
+  background: url('assets/Red Gradient.webp') center / cover no-repeat;
 }
 
 .lapetos-stats-inner {
@@ -2673,7 +2745,7 @@ img {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  width: 424px;
+  max-width: 100%;
 }
 
 .lapetos-stat-label {
@@ -2875,6 +2947,20 @@ img {
   width: 100%;
 }
 
+/* Info list + form side by side; the form is 688px wide at most and may shrink */
+.contact-page-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 40px;
+  width: 100%;
+}
+
+.contact-page-bottom .contact-form-container {
+  flex: 0 1 688px;
+  min-width: 0;
+}
+
 .contact-heading-area {
   flex: 1;
   min-width: 0;
@@ -3010,13 +3096,6 @@ img {
     height: 480px;
   }
 
-  .brands-grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-
-  .brand-card:nth-child(3) {
-    border-right: none;
-  }
 }
 
 @media (max-width: 768px) {
@@ -3170,13 +3249,9 @@ img {
     padding: 60px 20px;
   }
 
-  .brands-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .brand-card:nth-child(2),
-  .brand-card:nth-child(4) {
-    border-right: none;
+  .brands-track .brand-card {
+    flex-basis: 180px;
+    height: 88px;
   }
 
   /* ---- Work section (home) — accordion on mobile ---- */
@@ -3602,6 +3677,7 @@ img {
   }
 
   .lapetos-stats-card {
+    flex: none;
     width: 100%;
     height: auto;
     min-height: 0;
@@ -3756,6 +3832,15 @@ img {
   .contact-page-top {
     flex-direction: column;
     gap: 36px;
+  }
+
+  .contact-page-bottom {
+    flex-direction: column;
+  }
+
+  .contact-page-bottom .contact-form-container {
+    flex: none;
+    width: 100%;
   }
 
   .contact-quick-cards {

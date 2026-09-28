@@ -55,10 +55,10 @@ function initTaglineAnimation() {
 function initWorkAccordion() {
   if (window.innerWidth > 768) return;
   var labels = {
-    medical:        '🏥 Healthcare',
-    'food-beverage': '🍽️ Food & Beverage',
-    beauty:         '💄 Beauty',
-    education:      '📚 Education'
+    medical:        'Healthcare',
+    'food-beverage': 'Food & Beverage',
+    beauty:         'Beauty',
+    education:      'Education'
   };
   document.querySelectorAll('.work-content').forEach(function (panel) {
     var key = panel.getAttribute('data-tab-panel');
