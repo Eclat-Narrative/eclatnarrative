@@ -216,7 +216,9 @@ img {
 .hero-tagline {
   border-top: 1px solid var(--border-color);
   border-bottom: 1px solid var(--border-color);
-  padding: 16px 0;
+  /* Bleed the rules out to the hero-box edges; padding keeps text aligned */
+  margin: 0 -24px;
+  padding: 16px 24px;
   font-weight: 200;
   font-size: 16px;
   letter-spacing: 1.28px;
@@ -475,9 +477,11 @@ img {
   transition: transform 0.25s ease;
 }
 
+/* Arrow icon file points ↗: rotated to → at rest (above), back to ↗ on hover.
+   Same behaviour for every arrow on the site. */
 .contact-btn:hover img,
 .work-explore-link:hover img {
-  transform: rotate(180deg);
+  transform: none;
 }
 
 /* Food & Beverage: Pista House / Lumie are dropdown groups in the sidebar */
@@ -488,7 +492,6 @@ img {
 .fb-group {
   display: flex;
   flex-direction: column;
-  gap: 24px;
 }
 
 .fb-group-toggle {
@@ -496,7 +499,8 @@ img {
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  padding: 16px 8px;
+  /* Flush left so brand names line up with the sub-items and tab edge */
+  padding: 16px 8px 16px 0;
   white-space: nowrap;
   background: none;
   border: 0;
@@ -508,7 +512,7 @@ img {
   color: var(--text-white);
   text-align: left;
   cursor: pointer;
-  transition: border-color 0.2s ease;
+  transition: border-color 0.3s ease;
 }
 
 .fb-group-toggle.active {
@@ -520,27 +524,63 @@ img {
   width: 20px;
   height: 20px;
   transform: rotate(-90deg);
-  transition: transform 0.2s ease;
+  transition: transform 0.3s ease;
 }
 
 .fb-group-toggle.active .fb-group-caret {
   transform: rotate(0deg);
 }
 
+/* Smooth open/close: the grid row animates from 0fr to 1fr (its natural
+   height), so no fixed max-height is needed. Collapsed items are also made
+   invisible so they drop out of the keyboard tab order. */
 .fb-group-items {
-  display: none;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 24px;
+  display: grid;
+  grid-template-rows: 0fr;
+  opacity: 0;
+  visibility: hidden;
+  transition: grid-template-rows 0.35s ease, opacity 0.25s ease, visibility 0s linear 0.35s;
 }
 
 .fb-group-items.active {
+  grid-template-rows: 1fr;
+  opacity: 1;
+  visibility: visible;
+  transition: grid-template-rows 0.35s ease, opacity 0.3s ease 0.05s, visibility 0s;
+}
+
+.fb-group-inner {
+  min-height: 0;
+  overflow: hidden;
   display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  /* Space under the header animates with the group (padding doesn't shrink
+     with the 0fr row on its own), so a collapsed group leaves no gap */
+  padding-top: 0;
+  transition: padding-top 0.35s ease;
+}
+
+.fb-group-items.active .fb-group-inner {
+  padding-top: 24px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fb-group-items,
+  .fb-group-items.active,
+  .fb-group-toggle,
+  .fb-group-caret,
+  .fb-group-inner {
+    transition: none;
+  }
 }
 
 .fb-group-items .work-menu-item {
   justify-content: flex-start;
   gap: 8px;
+  /* Underline sits a touch closer to the text than the base 8px */
+  padding-bottom: 6px;
   border-bottom: 1px solid transparent;
 }
 
@@ -553,12 +593,17 @@ img {
   border-bottom-color: var(--text-white);
 }
 
-.fb-group-items .work-explore-link svg {
-  transition: transform 0.2s ease;
+/* Plain → arrow file (already points right): no rest rotation, tilts to ↗ on
+   hover like the site's other arrows */
+.fb-group-items .work-explore-link img {
+  width: 12px;
+  height: 12px;
+  transform: none;
+  transition: transform 0.25s ease;
 }
 
-.fb-group-items .work-explore-link:hover svg {
-  transform: translateX(3px);
+.fb-group-items .work-explore-link:hover img {
+  transform: rotate(-45deg);
 }
 
 /* Gallery Grid */
@@ -689,6 +734,71 @@ img {
   position: absolute;
   inset: 0;
   z-index: 2;
+}
+
+/* ↗ redirect icon, bottom-right, revealed on hover/keyboard focus */
+.gallery-link::after {
+  content: '';
+  position: absolute;
+  right: 14px;
+  bottom: 14px;
+  width: 28px;
+  height: 28px;
+  background: url("assets/01 - Home Page/01 - Navbar/IconArrowRightUpCircle.png") center / contain no-repeat;
+  filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.45));
+  opacity: 0;
+  transform: translate(-4px, 4px);
+  transition: opacity 0.25s ease, transform 0.25s ease;
+  pointer-events: none;
+}
+
+.gallery-item:hover .gallery-link::after,
+.gallery-link:focus-visible::after {
+  opacity: 1;
+  transform: none;
+}
+
+/* Reels (portrait cards): centred play icon over a light dim instead of ↗ */
+.gallery-item.h-540 .gallery-link::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(8, 8, 8, 0.3);
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+
+.gallery-item.h-540 .gallery-link::after {
+  right: auto;
+  bottom: auto;
+  left: 50%;
+  top: 50%;
+  width: 72px;
+  height: 72px;
+  background-image: url("assets/01 - Home Page/04 - Work/icons/play-circle.svg");
+  transform: translate(-50%, -50%) scale(0.85);
+}
+
+.gallery-item.h-540:hover .gallery-link::before,
+.gallery-item.h-540 .gallery-link:focus-visible::before {
+  opacity: 1;
+}
+
+.gallery-item.h-540:hover .gallery-link::after,
+.gallery-item.h-540 .gallery-link:focus-visible::after {
+  transform: translate(-50%, -50%) scale(1);
+}
+
+/* Touch screens have no hover, so keep the icons visible there */
+@media (hover: none) {
+  .gallery-link::after {
+    opacity: 1;
+    transform: none;
+  }
+
+  .gallery-item.h-540 .gallery-link::after {
+    transform: translate(-50%, -50%) scale(1);
+  }
 }
 
 /* 3×3 Social Media Posts Grid */
@@ -919,9 +1029,12 @@ img {
   line-height: 1.4;
 }
 
+/* Equal gaps between logos of different widths, first/last flush to the edges */
 .team-collabs-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
 }
 
 .team-collab-logo {
@@ -1108,6 +1221,18 @@ img {
   letter-spacing: 1.28px;
   text-transform: uppercase;
   outline: none;
+}
+
+/* Browser autofill paints its own light fill; cover it with the page background */
+.form-input:-webkit-autofill,
+.form-input:-webkit-autofill:hover,
+.form-input:-webkit-autofill:focus,
+.form-input:-webkit-autofill:active {
+  -webkit-text-fill-color: var(--text-white);
+  caret-color: var(--text-white);
+  -webkit-box-shadow: 0 0 0 1000px var(--bg-primary) inset;
+  box-shadow: 0 0 0 1000px var(--bg-primary) inset;
+  transition: background-color 9999s ease-out 0s;
 }
 
 .form-input::placeholder {
@@ -2776,11 +2901,19 @@ img {
   color: inherit;
   cursor: pointer;
   border: 1px solid transparent;
-  transition: border-color 0.2s ease;
+  transition: box-shadow 0.25s ease, transform 0.25s ease;
 }
 
 .contact-quick-card:hover {
-  border-color: var(--brand-primary);
+  /* Lift with a deeper shadow plus a soft brand-red glow */
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.6), 0 8px 28px rgba(212, 44, 61, 0.22);
+  transform: translateY(-4px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .contact-quick-card:hover {
+    transform: none;
+  }
 }
 
 .contact-quick-card-top {
@@ -2818,7 +2951,7 @@ img {
 }
 
 .contact-quick-card:hover .contact-quick-arrow img {
-  transform: rotate(180deg);
+  transform: none;
 }
 
 .contact-quick-info {
@@ -3012,6 +3145,8 @@ img {
   }
 
   .hero-tagline {
+    margin: 0 -20px;
+    padding: 16px 20px;
     font-size: 11px;
     letter-spacing: 0.8px;
     flex-wrap: wrap;
@@ -3144,7 +3279,7 @@ img {
 
   .work-content[data-tab-panel="food-beverage"] .fb-group-items .work-menu-item {
     white-space: normal;
-    padding: 8px 0;
+    padding: 8px 0 6px;
     border-right: none;
     background: none;
   }
@@ -3299,7 +3434,9 @@ img {
   }
 
   .team-collabs-grid {
+    display: grid;
     grid-template-columns: repeat(2, 1fr);
+    gap: 0;
   }
 
   /* ---- Contact section (home) ---- */
@@ -3628,5 +3765,126 @@ img {
 
   .contact-quick-card {
     width: 100%;
+  }
+}
+
+/* ==========================================================================
+   LEGAL PAGES (privacy-policy.html, terms-and-conditions.html)
+   ========================================================================== */
+
+.legal-page {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: var(--section-padding-y) var(--container-padding-x);
+}
+
+.legal-hero {
+  max-width: 880px;
+  padding-bottom: 56px;
+  margin-bottom: 56px;
+  border-bottom: 1px dashed var(--border-dashed);
+}
+
+.legal-label {
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 1.28px;
+  text-transform: uppercase;
+  color: var(--brand-primary);
+}
+
+.legal-title {
+  margin-top: 24px;
+  font-family: var(--font-hero);
+  font-size: 96px;
+  font-weight: 400;
+  line-height: 1;
+  text-transform: uppercase;
+  color: var(--text-white);
+}
+
+.legal-updated {
+  margin-top: 24px;
+  font-family: var(--font-body);
+  font-size: 14px;
+  color: var(--text-muted);
+}
+
+.legal-body {
+  max-width: 880px;
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+}
+
+.legal-section h2 {
+  font-family: var(--font-title);
+  font-size: 28px;
+  font-weight: 500;
+  line-height: 1.2;
+  color: var(--text-white);
+}
+
+.legal-section > * + * {
+  margin-top: 16px;
+}
+
+.legal-section p,
+.legal-section li {
+  font-family: var(--font-body);
+  font-size: 17px;
+  line-height: 1.6;
+  color: #bfbfbf;
+}
+
+.legal-section ul {
+  padding-left: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.legal-section strong {
+  color: var(--text-white);
+  font-weight: 600;
+}
+
+.legal-section a {
+  color: var(--text-white);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.legal-section a:hover {
+  color: var(--brand-primary);
+}
+
+@media (max-width: 768px) {
+  .legal-page {
+    padding-top: 64px;
+    padding-bottom: 64px;
+  }
+
+  .legal-hero {
+    padding-bottom: 40px;
+    margin-bottom: 40px;
+  }
+
+  .legal-title {
+    font-size: 52px;
+  }
+
+  .legal-body {
+    gap: 36px;
+  }
+
+  .legal-section h2 {
+    font-size: 22px;
+  }
+
+  .legal-section p,
+  .legal-section li {
+    font-size: 15px;
   }
 }

@@ -8,6 +8,18 @@ Open items on the Éclat Narrative site. Remove each entry once it's done.
 - **Why:** `about.html` and `contact.html` pointed the link to `work.html`, a page that doesn't exist. The link was taken out of all footers for now to keep them consistent.
 - **To do:** decide where the link should go, then add it back. Most pages used `index.html#work`, the Work section on the home page, and that link works.
 
+## Privacy Policy and Terms & Conditions need a legal review
+
+- **Where:** `privacy-policy.html` and `terms-and-conditions.html`, linked from every footer.
+- **Written from:** how the site actually works: the contact form goes through FormSubmit to Gmail, fonts load from Google, and there are no analytics or cookies. They also cover India's DPDP Act 2023 and name the courts at Lucknow for disputes.
+- **To do:** have a lawyer review both pages before relying on them.
+- **To do:** update both pages if the site changes: analytics, cookies, ads or a new form service would each need a new line in the Privacy Policy.
+
+## Home page contact section shows a misspelled email
+
+- **Where:** `sections/contact.html`, line 20.
+- **Problem:** it displays `eclanarrative@gmail.com`, with the "t" missing. The form itself sends to the correct `eclatnarrative@gmail.com`.
+
 ## Rameshwaram Dosa: reel links point to Pista House
 
 - **Where:**

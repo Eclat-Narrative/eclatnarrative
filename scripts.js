@@ -121,19 +121,30 @@ function initWorkTabs() {
     toggle.addEventListener('click', () => {
       const group = toggle.dataset.fbGroup;
       const sidebar = toggle.closest('.work-sidebar');
+      const wasOpen = toggle.classList.contains('active');
 
       sidebar.querySelectorAll('.fb-group-toggle').forEach(x => {
         x.classList.remove('active');
         x.setAttribute('aria-expanded', 'false');
       });
       sidebar.querySelectorAll('.fb-group-items').forEach(x => x.classList.remove('active'));
+
+      // Clicking the open group just collapses it; the gallery stays as it is
+      if (wasOpen) return;
+
       toggle.classList.add('active');
       toggle.setAttribute('aria-expanded', 'true');
       const items = sidebar.querySelector(`.fb-group-items[data-fb-group-items="${group}"]`);
       items?.classList.add('active');
 
-      // Show that group's first page by default
-      items?.querySelector('.work-menu-item[data-sub-tab]')?.click();
+      // Reopening the group already on screen keeps its current page;
+      // otherwise show that group's first page
+      const current = items?.querySelector('.work-menu-item[data-sub-tab].active');
+      const panel = current && sidebar.closest('.work-content')
+        .querySelector(`.work-sub-panel[data-sub-panel="${current.dataset.subTab}"]`);
+      if (!panel?.classList.contains('active')) {
+        items?.querySelector('.work-menu-item[data-sub-tab]')?.click();
+      }
     });
   });
 }
